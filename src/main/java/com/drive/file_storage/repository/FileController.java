@@ -1,4 +1,6 @@
 package com.drive.file_storage.repository;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -14,6 +16,7 @@ public class FileController {
 
     private final FileStorageService fileStorageService;
 
+    @Autowired
     public FileController(FileStorageService fileStorageService) {
         this.fileStorageService = fileStorageService;
     }
