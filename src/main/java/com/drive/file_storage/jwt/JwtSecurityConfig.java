@@ -6,6 +6,7 @@ import java.security.interfaces.RSAPrivateKey;
 import java.security.interfaces.RSAPublicKey;
 import java.util.UUID;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -41,6 +42,12 @@ import com.nimbusds.jose.proc.SecurityContext;
 @EnableWebSecurity
 @EnableMethodSecurity
 public class JwtSecurityConfig {
+
+    @Value("${jwt.username}")
+    private String username;
+
+    @Value("${jwt.password}")
+    private String password;
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity, HandlerMappingIntrospector introspector) throws Exception {
@@ -81,8 +88,8 @@ public class JwtSecurityConfig {
 
     @Bean
     public UserDetailsService userDetailsService() {
-        UserDetails user = User.withUsername("Ronaldo")
-                .password("{noop}dummy")
+        UserDetails user = User.withUsername(username)
+                .password(password)
                 .authorities("read")
                 .roles("USER")
                 .build();
