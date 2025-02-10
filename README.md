@@ -10,12 +10,13 @@ A cloud-based file storage and sharing service built with **Spring Boot** and **
 - 🔐 **Secure Access**: Authentication and authorization using **JWT (JSON Web Token)**.
 - ☁️ **Cloud Storage**: Files are stored in **AWS S3** for scalability and reliability.
 - 📂 **Organized Structure**: Users can manage their files efficiently.
+- 🔗 **Centralized File Sharing**: Users can share files with others using secure links.
 
 ## 🛠️ Tech Stack
 
 - **Backend**: Spring Boot, Spring Security, JWT Authentication
 - **Storage**: AWS S3
-- **Database**: PostgreSQL / MySQL (Configurable)
+- **Database**: MySQL/PostgreSQL (Configurable)
 - **Build Tool**: Maven / Gradle
 
 ## 📌 Setup Instructions
@@ -25,7 +26,7 @@ Ensure you have the following installed:
 - Java 17+
 - Maven or Gradle
 - AWS Account with S3 Bucket
-- PostgreSQL/MySQL Database
+- MySQL/PostgreSQL Database
 
 ### 2️⃣ Clone the Repository
 ```sh
@@ -40,7 +41,8 @@ Create a `secrets.properties` file to store sensitive credentials:
 aws.accessKey=your-access-key
 aws.secretKey=your-secret-key
 aws.s3.bucketName=your-bucket-name
-jwt.secret=your-jwt-secret
+jwt.username=your-jwt-secret
+jwt.password=your-jwt-secret
 ```
 
 Add `secrets.properties` to `.gitignore` to keep it out of Git.
@@ -66,7 +68,4 @@ gradle bootRun
 
 ## 🤝 Contributions
 Feel free to contribute! Fork the repo, make changes, and submit a PR.
-
-## 📧 Contact
-For any questions, reach out via [your-email@example.com](mailto:your-email@example.com).
 
