@@ -11,11 +11,10 @@ public class FileService {
         this.fileMetadataRepository = repository;
     }
 
-    public void saveFileMetadata(String fileName, String url, String uploadedBy) {
+    public void saveFileMetadata(String fileName, String url) {
         FileMetadata metadata = new FileMetadata();
         metadata.setFileName(fileName);
         metadata.setUrl(url);
-        metadata.setUploadedBy(uploadedBy);
         metadata.setUploadDate(new Date());
         fileMetadataRepository.save(metadata);
     }

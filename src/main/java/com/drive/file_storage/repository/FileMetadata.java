@@ -7,12 +7,12 @@ import java.util.Date;
 
 @Entity
 public class FileMetadata {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String fileName;
     private String url;
-    private String uploadedBy;
     private Date uploadDate;
 
     // Getters & Setters
@@ -39,14 +39,6 @@ public class FileMetadata {
 
     public void setUrl(String url) {
         this.url = url;
-    }
-
-    public String getUploadedBy() {
-        return uploadedBy;
-    }
-
-    public void setUploadedBy(String uploadedBy) {
-        this.uploadedBy = uploadedBy;
     }
 
     public Date getUploadDate() {
