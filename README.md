@@ -29,8 +29,8 @@ Ensure you have the following installed:
 
 ### 2️⃣ Clone the Repository
 ```sh
-git clone https://github.com/yourusername/drive-clone.git
-cd drive-clone
+git clone https://github.com/Adityayadav0505/DriveX.git
+cd DriveX
 ```
 
 ### 3️⃣ Configure the Application
