@@ -1,13 +1,18 @@
 package com.drive.file_storage.repository;
 
+import com.amazonaws.services.s3.model.ListObjectsV2Request;
+import com.amazonaws.services.s3.model.ListObjectsV2Result;
 import com.amazonaws.services.s3.model.PutObjectRequest;
 import com.amazonaws.services.s3.model.S3Object;
+import com.amazonaws.services.s3.model.S3ObjectSummary;
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import com.amazonaws.services.s3.AmazonS3;
 import org.springframework.web.multipart.MultipartFile;
 import java.io.IOException;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class FileStorageService {
@@ -35,5 +40,14 @@ public class FileStorageService {
 
     public S3Object downloadFile(String fileName) {
         return s3Client.getObject(bucketName, fileName);
+    }
+
+    public List<String> listFiles() {
+        ListObjectsV2Request request = new ListObjectsV2Request().withBucketName(bucketName);
+        ListObjectsV2Result result = s3Client.listObjectsV2(request);
+
+        return result.getObjectSummaries().stream()
+                .map(S3ObjectSummary::getKey)  // Extract file names
+                .collect(Collectors.toList());
     }
 }
