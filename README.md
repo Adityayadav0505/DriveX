@@ -92,8 +92,8 @@ gradle bootRun
 ### 5️⃣ API Endpoints
 | Method | Endpoint | Description |
 |--------|---------|-------------|
-| `POST` | `/upload` | Upload a file |
-| `GET` | `/download/{fileId}` | Download a file |
-| `GET` | `/files` | List all uploaded files |
+| `POST` | `files/upload` | Upload a file |
+| `GET` | `files/download/{fileId}` | Download a file |
+| `GET` | `files/list` | List all uploaded files |
 | `POST` | `/authenticate` | Get your Jwt token |
 
