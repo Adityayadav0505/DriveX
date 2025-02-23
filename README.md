@@ -11,6 +11,8 @@ A cloud-based file storage and sharing service built with **Spring Boot** and **
 - ☁️ **Cloud Storage**: Files are stored in **AWS S3** for scalability and reliability.
 - 📂 **Organized Structure**: Users can manage their files efficiently.
 - 🔗 **Centralized File Sharing**: Users can share files with others using secure links.
+- 🚀 **Redis Caching**: Metadata is cached in Redis to improve performance.
+- ⚡ **Faster Access**: Cached file metadata reduces database queries.
 
 ## 🛠️ Tech Stack
 
@@ -18,6 +20,7 @@ A cloud-based file storage and sharing service built with **Spring Boot** and **
 - **Storage**: AWS S3
 - **Database**: MySQL/PostgreSQL (Configurable)
 - **Build Tool**: Maven / Gradle
+- **Cache: Redis
 
 ## 📌 Setup Instructions
 
@@ -27,6 +30,7 @@ Ensure you have the following installed:
 - Maven or Gradle
 - AWS Account with S3 Bucket
 - MySQL/PostgreSQL Database
+- Redis Server (running locally or on cloud)
 
 ### 2️⃣ Clone the Repository
 ```sh
@@ -95,5 +99,6 @@ gradle bootRun
 | `POST` | `files/upload` | Upload a file |
 | `GET` | `files/download/{fileId}` | Download a file |
 | `GET` | `files/list` | List all uploaded files |
+| `GET` | `files/metadata/{fileId}` | Get file metadata (cached in Redis) |
 | `POST` | `/authenticate` | Get your Jwt token |
 
