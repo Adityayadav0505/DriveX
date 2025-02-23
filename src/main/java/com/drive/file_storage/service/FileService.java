@@ -47,7 +47,6 @@ public class FileService {
         // Try fetching from Redis first
         FileMetadataCache cachedMetadata = (FileMetadataCache) redisTemplate.opsForValue().get(redisKey);
         if (cachedMetadata != null) {
-            System.out.println("Retrieved from Redis");
             return Optional.of(cachedMetadata);
         }
 
@@ -59,7 +58,6 @@ public class FileService {
 
             // Store in Redis with expiration
             redisTemplate.opsForValue().set(redisKey, cache, cacheExpiration, TimeUnit.SECONDS);
-            System.out.println("Retrieved from DB and cached in Redis");
 
             return Optional.of(cache);
         }
