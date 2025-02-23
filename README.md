@@ -47,6 +47,8 @@ aws.secretKey=your-secret-key
 aws.s3.bucketName=your-bucket-name
 jwt.username=your-jwt-secret
 jwt.password=your-jwt-secret
+redis.host=localhost  # Redis Host
+redis.port=6379       # Redis Port
 ```
 
 Add path to `application.properties` file
