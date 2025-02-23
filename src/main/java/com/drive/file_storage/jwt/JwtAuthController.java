@@ -8,14 +8,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class JwtAuthenticationController {
+public class JwtAuthController {
 
     private final JwtTokenService tokenService;
 
     private final AuthenticationManager authenticationManager;
 
-    public JwtAuthenticationController(JwtTokenService tokenService,
-                                       AuthenticationManager authenticationManager) {
+    public JwtAuthController(JwtTokenService tokenService,
+                             AuthenticationManager authenticationManager) {
         this.tokenService = tokenService;
         this.authenticationManager = authenticationManager;
     }

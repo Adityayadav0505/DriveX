@@ -1,7 +1,6 @@
-package com.drive.file_storage.repository;
+package com.drive.file_storage.model.entity;
 
 import jakarta.persistence.*;
-import org.springframework.stereotype.Repository;
 
 import java.util.Date;
 
