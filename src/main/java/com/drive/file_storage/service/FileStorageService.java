@@ -1,11 +1,10 @@
-package com.drive.file_storage.repository;
+package com.drive.file_storage.service;
 
 import com.amazonaws.services.s3.model.ListObjectsV2Request;
 import com.amazonaws.services.s3.model.ListObjectsV2Result;
 import com.amazonaws.services.s3.model.PutObjectRequest;
 import com.amazonaws.services.s3.model.S3Object;
 import com.amazonaws.services.s3.model.S3ObjectSummary;
-import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import com.amazonaws.services.s3.AmazonS3;
@@ -28,14 +27,14 @@ public class FileStorageService {
         this.fileService = fileService;
     }
 
-    public String uploadFile(MultipartFile file) throws IOException {
+    public Long uploadFile(MultipartFile file) throws IOException {
         String fileName = System.currentTimeMillis() + "_" + file.getOriginalFilename();
         s3Client.putObject(new PutObjectRequest(bucketName, fileName, file.getInputStream(), null));
         String fileUrl = s3Client.getUrl(bucketName, fileName).toString(); // Returning the file URL
 
-        fileService.saveFileMetadata(fileName, fileUrl);
+        //fileService.saveFileMetadata(fileName, fileUrl);
 
-        return fileUrl;
+        return fileService.saveFileMetadata(fileName, fileUrl);
     }
 
     public S3Object downloadFile(String fileName) {
