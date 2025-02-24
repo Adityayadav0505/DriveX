@@ -20,7 +20,7 @@ A cloud-based file storage and sharing service built with **Spring Boot** and **
 - **Storage**: AWS S3
 - **Database**: MySQL/PostgreSQL (Configurable)
 - **Build Tool**: Maven / Gradle
-- **Cache: Redis
+- **Cache**: Redis
 
 ## 📌 Setup Instructions
 
